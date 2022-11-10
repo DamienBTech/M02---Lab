@@ -2,11 +2,11 @@ window.addEventListener("DOMContentLoaded", domLoaded);
 
 function domLoaded() {
    // TODO: Complete the function
-   let conButton = document.querySelector("#convertButton")
+   var conButton = document.querySelector("#convertButton")
    conButton.addEventListener("click", clickHandler)
    
-   celcius = document.querySelector("#cInput")
-   fahrenheit = document.querySelector("#fInput")
+   var celcius = document.querySelector("#cInput")
+   var fahrenheit = document.querySelector("#fInput")
 
    celcius.addEventListener("input", function(){
    clearBox(fahrenheit)
@@ -58,7 +58,7 @@ if(celcius.value.length > 0){
    }
 
 }
-if(fahrenheit.value.length > 0){
+else if(fahrenheit.value.length > 0){
    var fahrenheitValue = parsefloat(fahrenheit.value)
    if (!isNaN(fahrenheitValue)){
       celcius.value = convertCtoF(farenheitValue)
