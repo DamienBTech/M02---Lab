@@ -1,38 +1,35 @@
 window.addEventListener("DOMContentLoaded", domLoaded);
 
 function domLoaded() {
-   // TODO: Complete the function
+   //declares and listens for button
    var conButton = document.querySelector("#convertButton")
    conButton.addEventListener("click", clickHandler)
-   
-   var celcius = document.querySelector("#cInput")
+   //declare data values
+   var celsius = document.querySelector("#cInput")
    var fahrenheit = document.querySelector("#fInput")
-
-   celcius.addEventListener("input", function(){
+   //listens for input from the other box to call clearBox
+   celsius.addEventListener("input", function(){
    clearBox(fahrenheit)
-
    })
+
    fahrenheit.addEventListener("input", function(){
-   clearBox(celcius)
-
+   clearBox(celsius)
    })
-
-
 }
 //removes from the other box
 function clearBox(textInput){
    textInput.value = ""
-   }
-//Converts Fahrenheit to Celcius
+   }   
+
+   //Converts Fahrenheit to Celcius
 function convertFtoC(degreesFahrenheit) {
    // TODO: Complete the function
    let degreesFahrenheit = fahrenheit
    degreesCelsius = ((degreesFahrenheit - 32) * 5/9)
     return degreesCelsius
 }
-    //Converts Celcius to Fahrenheit
+//Converts Celcius to Fahrenheit
 function convertCtoF(degreesCelsius) {
-   //TODO: Complete the function
    let degreesCelsius = celcius
    degreesFahrenheit = (degreesCelsius * 9/5 + 32) 
    return
@@ -42,18 +39,18 @@ function convertCtoF(degreesCelsius) {
 //checks for input error, activates the conversion, outputs converstion
 function clickHandler(){
 
-var celcius = document.querySelector("#cInput")
+var celsius = document.querySelector("#cInput")
 var fahrenheit = document.querySelector("#fInput")
 var errMsg = document.querySelector("#errorMessage")
 
-if(celcius.value.length > 0){
-   var celciusValue = parsefloat(celcius.value)
-   if (!isNaN(celciusValue)){
-      fahrenheit.value = convertCtoF(celciusValue)
+if(celsius.value.length > 0){
+   var celsiusValue = parsefloat(celsius.value)
+   if (!isNaN(celsiusValue)){
+      fahrenheit.value = convertCtoF(celsiusValue)
       errMsg.innerHTML = " "
    }
    else{
-      errMsg.innerHTML = celcius.value + "is not a number"
+      errMsg.innerHTML = celsius.value + "is not a number"
    }
 
 }
