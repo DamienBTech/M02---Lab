@@ -29,7 +29,7 @@ function convertFtoC(degreesFahrenheit) {
    let degreesFahrenheit = fahrenheit
    degreesCelsius = ((degreesFahrenheit - 32) * 5/9)
     return degreesCelsius
-
+}
     //Converts Celcius to Fahrenheit
 function convertCtoF(degreesCelsius) {
    //TODO: Complete the function
@@ -39,7 +39,6 @@ function convertCtoF(degreesCelsius) {
 }
 
 
-}
 //checks for input error, activates the conversion, outputs converstion
 function clickHandler(){
 
@@ -61,7 +60,7 @@ if(celcius.value.length > 0){
 else if(fahrenheit.value.length > 0){
    var fahrenheitValue = parsefloat(fahrenheit.value)
    if (!isNaN(fahrenheitValue)){
-      celcius.value = convertCtoF(farenheitValue)
+      celcius.value = convertFtoC(farenheitValue)
       errMsg.innerHTML = " "
    }
    else{
