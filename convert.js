@@ -21,19 +21,41 @@ function clearBox(textInput){
    textInput.value = ""
    }   
 
-   //Converts Fahrenheit to Celcius
+   //Converts Fahrenheit to Celsius
 function convertFtoC(degreesFahrenheit) {
    // TODO: Complete the function
-   let degreesFahrenheit = fahrenheit
    degreesCelsius = ((degreesFahrenheit - 32) * 5/9)
-    return degreesCelsius
+   if(degreesFahrenheit < 32){
+     document.querySelector("#weatherImage").src = "cold.png"
+   }
+   else{
+     if(degreesFahrenheit >= 32 && degreesFahrenheit <= 50){
+     document.querySelector("#weatherImage").src = "cool.png"
+     }
+     else{
+       document.querySelector("#weatherImage").src = "warm.png"
+     }
+   }
+     
+   return degreesCelsius
+   
 }
-//Converts Celcius to Fahrenheit
+//Converts Celsius to Fahrenheit
 function convertCtoF(degreesCelsius) {
-   let degreesCelsius = celcius
    degreesFahrenheit = (degreesCelsius * 9/5 + 32) 
-   return
-}
+   if(degreesFahrenheit < 32){
+     document.querySelector("#weatherImage").src = "cold.png"
+   }
+   else{
+     if(degreesFahrenheit >= 32 && degreesFahrenheit <= 50){
+     document.querySelector("#weatherImage").src = "cool.png"
+     }
+     else{
+       document.querySelector("#weatherImage").src = "warm.png"
+     }
+   }
+   return degreesFahrenheit
+   }
 
 
 //checks for input error, activates the conversion, outputs converstion
@@ -44,24 +66,24 @@ var fahrenheit = document.querySelector("#fInput")
 var errMsg = document.querySelector("#errorMessage")
 
 if(celsius.value.length > 0){
-   var celsiusValue = parsefloat(celsius.value)
+   var celsiusValue = parseFloat(celsius.value)
    if (!isNaN(celsiusValue)){
       fahrenheit.value = convertCtoF(celsiusValue)
       errMsg.innerHTML = " "
    }
    else{
-      errMsg.innerHTML = celsius.value + "is not a number"
+      errMsg.innerHTML = celsius.value + " is not a number"
    }
-
+  
 }
 else if(fahrenheit.value.length > 0){
-   var fahrenheitValue = parsefloat(fahrenheit.value)
+   var fahrenheitValue = parseFloat(fahrenheit.value)
    if (!isNaN(fahrenheitValue)){
-      celcius.value = convertFtoC(farenheitValue)
+      celsius.value = convertFtoC(fahrenheitValue)
       errMsg.innerHTML = " "
    }
    else{
-      errMsg.innerHTML = fahrenheit.value + "is not a number"
+      errMsg.innerHTML = fahrenheit.value + " is not a number"
    }
 
 }
